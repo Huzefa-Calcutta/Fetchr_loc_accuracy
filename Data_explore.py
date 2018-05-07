@@ -87,6 +87,7 @@ plt.clf()
 delivery_slot_to = seaborn.countplot("time_slot_to", hue="accurate", data = data, order=sorted(pd.unique(data["time_slot_to"])))
 plt.clf()
 
+data["delivery_slot"] = data["time_slot_from"].str[:2] + "-" + data["time_slot_to"].str[:2]
 delivery_slot = seaborn.countplot("delivery_slot", hue="accurate", data = data, order=sorted(pd.unique(data["delivery_slot"])))
 delivery_slot.set_xticklabels(labels=sorted(pd.unique(data["delivery_slot"])), rotation = 90)
 plt.clf()
